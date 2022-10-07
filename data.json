@@ -1,0 +1,6 @@
+
+[
+    {"nombre": "Hamburguesa con queso", "descripcion":"asd1","precio":1000,  "id": 1},
+    {"nombre": "Hamburguesa doble", "descripcion":"asd2","precio":1500,  "id": 2},
+    {"nombre": "Hamburguesa bacon", "descripcion":"asd3","precio":1600,  "id": 3}
+]

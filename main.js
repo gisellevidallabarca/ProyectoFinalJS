@@ -7,10 +7,43 @@ class Menu {
     }
 
 }
+let hamburguesaQueso;
+let hamburguesaDoble;
+let hamburguesaBacon;
+const listaCombos =[];
+
+//La otra manera async de poder hacer el fetch
+/*
+const getHamburguesas = async () => {
+  const resp = await fetch('data.json')
+  const data = await resp.json()
+  data.forEach((producto) => {
+    listaCombos.push(new Menu (producto.id,producto.nombre,producto.precio))
+  })
+}
+
+getHamburguesas()
+*/
+
+//Traigo los datos de un archivo JSON local, como default GET.
+fetch('data.json')
+    .then( (res) => res.json()) 
+    .then( (data) => {
+        data.forEach((producto) => {
+          listaCombos.push(new Menu (producto.id,producto.nombre,producto.precio))
+        })
+    })
+    .catch((error) =>{
+      console.log(error)
+    })
+  
+setTimeout(() =>{
 //Declaro instancias del objeto.
-const hamburguesaQueso = new Menu ("1", "Hamburguesa con queso" , 1000);
-const hamburguesaDoble = new Menu ("2", "Hamburguesa doble" , 1500);
-const hamburguesaBacon = new Menu ("3", "Hamburguesa bacon", 1600);
+  hamburguesaQueso = listaCombos[0];
+  hamburguesaDoble = listaCombos[1];
+  hamburguesaBacon = listaCombos[2];
+},1000)
+
 //Declaro variables.
 let idMenu;
 //Parseo la variable para que no la sume como string en ningun momento
@@ -27,25 +60,27 @@ const menuesElegidosSS=[] ;
 //Escucho el evento con el que interactua el usuario.
 const hamburQueso = document.querySelector("#SuperHambQueso");
 hamburQueso.addEventListener("click", () => {
+  setTimeout(() =>{
     agregar(hamburguesaQueso);
+    },1000)
   });
     
-
-
-
 const hamburDoble = document.querySelector("#SuperHambDoble");
 hamburDoble.addEventListener("click", () => {
-    agregar(hamburguesaDoble);
+  setTimeout(() =>{
+    agregar(hamburguesaQueso);
+    },1000)
   });
 
 const hamburBacon = document.querySelector("#SuperHambBacon");
 hamburBacon.addEventListener("click", () => {
-    agregar(hamburguesaBacon);
+    setTimeout(() =>{
+    agregar(hamburguesaQueso);
+    },1000)
   });
 
 
 //Funcion que utilizan todos los menus de la web ya que comparten variables y objeto.
-
 function agregar(hamburguesa){
    idMenu =  hamburguesa.nombre
    total += parseInt(hamburguesa.precio);
@@ -59,7 +94,6 @@ function agregar(hamburguesa){
    document.body.appendChild(menuesAMostrar);
    VerificarHamburguesasEnLocalStorage(hamburguesa)
    cartelAgregado();
-
 };
 
 function cartelAgregado(){
@@ -84,9 +118,6 @@ function VerificarHamburguesasEnLocalStorage(hamburguesa){
     const hamburguesaLS = localStorage.getItem(hamburguesa.id); 
 
 }
-
-   
-
 
 //Vuelvo al carrito desde 0.
 const vaciarCarrito = document.querySelector("#vaciarCarrito");
