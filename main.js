@@ -30,6 +30,7 @@ fetch('data.json')
     .then( (res) => res.json()) 
     .then( (data) => {
         data.forEach((producto) => {
+          console.log(producto)
           listaCombos.push(new Menu (producto.id,producto.nombre,producto.precio))
         })
     })
@@ -68,14 +69,14 @@ hamburQueso.addEventListener("click", () => {
 const hamburDoble = document.querySelector("#SuperHambDoble");
 hamburDoble.addEventListener("click", () => {
   setTimeout(() =>{
-    agregar(hamburguesaQueso);
+    agregar(hamburguesaDoble);
     },1000)
   });
 
 const hamburBacon = document.querySelector("#SuperHambBacon");
 hamburBacon.addEventListener("click", () => {
     setTimeout(() =>{
-    agregar(hamburguesaQueso);
+    agregar(hamburguesaBacon);
     },1000)
   });
 
