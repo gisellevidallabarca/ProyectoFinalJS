@@ -1,6 +1,6 @@
 
 [
-    {"nombre": "Hamburguesa con queso", "descripcion":"asd1","precio":1000,  "id": 1},
-    {"nombre": "Hamburguesa doble", "descripcion":"asd2","precio":1500,  "id": 2},
-    {"nombre": "Hamburguesa bacon", "descripcion":"asd3","precio":1600,  "id": 3}
+    {"nombre": "Hamburguesa con queso", "descripcion":"asd1","precio":1000, "img":"Imagenes/hamburguesaQueso.png" , "idSumar": "sumar1","idRestar":"restar1","idContador" : "contador1"},
+    {"nombre": "Hamburguesa doble", "descripcion":"asd2","precio":1500, "img":"Imagenes/hamburguesaDoble.png" , "idSumar": "sumar2","idRestar":"restar2","idContador" : "contador2"},
+    {"nombre": "Hamburguesa bacon", "descripcion":"asd3","precio":1600, "img":"Imagenes/hamburguesaBAcon.png" , "idSumar": "sumar3","idRestar":"restar3","idContador" : "contador3"}
 ]
